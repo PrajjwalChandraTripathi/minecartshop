@@ -32,6 +32,9 @@ gem 'cancancan'
 gem 'draper'
 gem 'pundit'
 gem 'sassc'
+gem 'devise'
+gem 'stripe'
+gem 'letter_opener'
 
 # Use Redis adapter to run Action Cable in production
 # gem "redis", ">= 4.0.1"

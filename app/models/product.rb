@@ -1,7 +1,8 @@
 class Product < ApplicationRecord
   belongs_to :category
   has_many :stocks
-
+  has_many :cart_items
+ has_many :ratings
   def self.ransackable_associations(auth_object = nil)
     ["category", "stocks"]
   end

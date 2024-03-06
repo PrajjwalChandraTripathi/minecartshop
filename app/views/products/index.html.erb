@@ -1,0 +1,19 @@
+<h1>Products</h1>
+
+<%= form_tag(products_path, method: 'get') do %>
+  <%= text_field_tag :search, params[:search], placeholder: 'Search by name' %>
+  <%= select_tag :category_id, options_from_collection_for_select(Category.all, 'id', 'name', params[:category_id]), include_blank: true, prompt: 'Select category' %>
+  <%= number_field_tag :min_price, params[:min_price], step: 10 %>
+  <%= label_tag 'min_price', 'Min Price' %>
+  <%= number_field_tag :max_price, params[:max_price], step: 10 %>
+  <%= label_tag 'max_price', 'Max Price' %>
+
+  <%= submit_tag 'Filter' %>
+<% end %>
+
+<% @products.each do |product| %>
+  <div>
+    <h2><%= link_to product.name, product_path(product) %></h2>
+    <p><%= product.price %></p>
+  </div>
+<% end %>
